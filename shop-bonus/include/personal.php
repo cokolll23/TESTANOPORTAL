@@ -1,1 +1,1 @@
-<a href="/bonus-shop/personal/">Персональный раздел</a>
+<a href="/shop-bonus/personal/">Персональный раздел</a>

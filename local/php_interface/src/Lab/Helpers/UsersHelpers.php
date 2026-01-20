@@ -42,7 +42,7 @@ class UsersHelpers
      */
     public static function getUsersGroupCodeByGropeID(int $groupId)
     {
-        $groupCode = Bitrix\Main\GroupTable::getRow([
+        $groupCode = \Bitrix\Main\GroupTable::getRow([
             'select' => ['STRING_ID', 'NAME'],
             'filter' => ['=ID' => $groupId]
         ])['STRING_ID'];

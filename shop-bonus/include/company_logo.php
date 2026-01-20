@@ -1,1 +1,1 @@
-<img src="/bonus-shop/include/logo.png"  srcset="/bonus-shop/include/logo.png" />
+<img src="/shop-bonus/include/logo.png"  srcset="/shop-bonus/include/logo.png" />

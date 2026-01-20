@@ -291,7 +291,7 @@ $curPage = $APPLICATION->GetCurPage(true);
                         if ($curPage == SITE_DIR . "index.php"):?>
                             <div class='lab-banner_imgs-wrapp'>
 
-                                <img class="num-3" width="850" src="<?= SITE_DIR?>include/banner.png" height="800">
+                                <img class="num-3" width="850" src="<?= SITE_DIR ?>include/banner.png" height="800">
 
                             </div>
 
@@ -333,5 +333,9 @@ $curPage = $APPLICATION->GetCurPage(true);
                 <? else: ?>
                 <div class="row ">
                     <? endif; ?>
-                    <? $needSidebar = preg_match("~^" . SITE_DIR . "(catalog|personal\/cart|personal\/order\/make)/~", $curPage); ?>
-                    <div class="bx-content <?= ($needSidebar ? "container" : "container") ?>">
+                    <? $needSidebar = preg_match("~^" . SITE_DIR . "(catalog|personal\/cart|personal\/order\/tablitsa-ballov)/~", $curPage); ?>
+                    <? if ($curPage == SITE_DIR . "index.php"): ?>
+                    <div class="bx-content container" >
+                        <?else:?>
+                    <div class="bx-content <?= ($needSidebar ? "container" : "") ?>">
+                    <? endif; ?>

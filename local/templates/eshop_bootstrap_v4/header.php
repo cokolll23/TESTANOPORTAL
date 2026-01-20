@@ -123,7 +123,7 @@ $curPage = $APPLICATION->GetCurPage(true);
 				<div class="col">
 					<?$APPLICATION->IncludeComponent(
 	"bitrix:menu", 
-	"bootstrap_v4", 
+	"bootstrap_5",
 	array(
 		"ROOT_MENU_TYPE" => "top",
 		"MENU_CACHE_TYPE" => "A",
@@ -138,7 +138,7 @@ $curPage = $APPLICATION->GetCurPage(true);
 		"USE_EXT" => "Y",
 		"DELAY" => "N",
 		"ALLOW_MULTI_SELECT" => "N",
-		"COMPONENT_TEMPLATE" => "bootstrap_v4"
+		"COMPONENT_TEMPLATE" => "bootstrap_5"
 	),
 	false
 );?>
@@ -155,7 +155,7 @@ $curPage = $APPLICATION->GetCurPage(true);
 					<div class="col">
 						<?$APPLICATION->IncludeComponent(
 							"bitrix:search.title",
-							"bootstrap_v4",
+							"bootstrap_5",
 							array(
 								"NUM_CATEGORIES" => "1",
 								"TOP_COUNT" => "5",

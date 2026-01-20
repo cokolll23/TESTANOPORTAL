@@ -1,10 +1,10 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
-$APPLICATION->SetTitle("Интернет-магазин \"<Бонусы>\"");
+$APPLICATION->SetTitle("Интернет-магазин \"Бонусы\"");
 ?><div id="lab-catalog">
 <?$APPLICATION->IncludeComponent(
 	"bitrix:catalog.section", 
-	"bootstrap_v4", 
+	"bootstrap_v4",
 	array(
 		"ACTION_VARIABLE" => "action",
 		"ADD_PICT_PROP" => "-",
@@ -17,14 +17,14 @@ $APPLICATION->SetTitle("Интернет-магазин \"<Бонусы>\"");
 		"AJAX_OPTION_JUMP" => "N",
 		"AJAX_OPTION_STYLE" => "Y",
 		"BACKGROUND_IMAGE" => "-",
-		"BASKET_URL" => "/bonus-shop/personal/cart/",
+		"BASKET_URL" => "/shop-bonus/personal/cart/",
 		"BROWSER_TITLE" => "-",
 		"CACHE_FILTER" => "N",
 		"CACHE_GROUPS" => "N",
 		"CACHE_TIME" => "36000000",
 		"CACHE_TYPE" => "A",
 		"COMPATIBLE_MODE" => "N",
-		"COMPONENT_TEMPLATE" => "bootstrap_v4",
+		"COMPONENT_TEMPLATE" => "bootstrap_5",
 		"CONVERT_CURRENCY" => "N",
 		"CUSTOM_FILTER" => "{\"CLASS_ID\":\"CondGroup\",\"DATA\":{\"All\":\"AND\",\"True\":\"True\"},\"CHILDREN\":[]}",
 		"DETAIL_URL" => "",
@@ -32,9 +32,9 @@ $APPLICATION->SetTitle("Интернет-магазин \"<Бонусы>\"");
 		"DISPLAY_BOTTOM_PAGER" => "Y",
 		"DISPLAY_COMPARE" => "N",
 		"DISPLAY_TOP_PAGER" => "N",
-		"ELEMENT_SORT_FIELD" => "id",
+		"ELEMENT_SORT_FIELD" => "SCALED_PRICE_1",
 		"ELEMENT_SORT_FIELD2" => "sort",
-		"ELEMENT_SORT_ORDER" => "asc",
+		"ELEMENT_SORT_ORDER" => "desc",
 		"ELEMENT_SORT_ORDER2" => "asc",
 		"ENLARGE_PRODUCT" => "STRICT",
 		"FILTER_NAME" => "trendFilter",
@@ -45,8 +45,10 @@ $APPLICATION->SetTitle("Интернет-магазин \"<Бонусы>\"");
 		"IBLOCK_TYPE_ID" => "catalog",
 		"INCLUDE_SUBSECTIONS" => "Y",
 		"LABEL_PROP" => array(
+			0 => "LAB_SKORO",
 		),
-		"LABEL_PROP_MOBILE" => "",
+		"LABEL_PROP_MOBILE" => array(
+		),
 		"LABEL_PROP_POSITION" => "top-right",
 		"LAZY_LOAD" => "N",
 		"LINE_ELEMENT_COUNT" => "3",

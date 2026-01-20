@@ -688,7 +688,7 @@
 
 		isBasketChanged: function()
 		{
-           console.log(this.changedItems.length);
+
            if (this.changedItems.length == 0) {
                BX.Sale.OrderAjaxComponent.sendRequest();
            }else{

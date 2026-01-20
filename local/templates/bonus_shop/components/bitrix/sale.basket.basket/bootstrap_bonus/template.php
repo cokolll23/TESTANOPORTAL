@@ -146,7 +146,7 @@ if (empty($arResult['ERROR_MESSAGE']))
 			<?
 			$APPLICATION->IncludeComponent(
 				'bitrix:sale.products.gift.basket',
-				'bootstrap_v4',
+				'bootstrap_5',
 				$giftParameters,
 				$component
 			);
@@ -281,7 +281,7 @@ if (empty($arResult['ERROR_MESSAGE']))
 			<?
 			$APPLICATION->IncludeComponent(
 				'bitrix:sale.products.gift.basket',
-				'bootstrap_v4',
+				'bootstrap_5',
 				$giftParameters,
 				$component
 			);

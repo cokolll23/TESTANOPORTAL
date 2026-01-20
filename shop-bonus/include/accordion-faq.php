@@ -116,7 +116,7 @@
             </div>
         </div>
         <div class="tab">
-            <input type="checkbox" name="accordion-1" id="cb3"> <label for="cb3" class="tab__label"> <span>Использование баллов</span>
+            <input type="checkbox" name="accordion-1" id="cb3"> <label for="cb3" class="tab__label"> <span>Срок действия баллов</span>
             </label>
             <div class="tab__content">
                 <p>

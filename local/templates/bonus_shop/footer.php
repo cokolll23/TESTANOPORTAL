@@ -29,79 +29,17 @@ if ($curPage == SITE_DIR . "index.php"): ?>
         </div>
     </a>
     <? $APPLICATION->IncludeComponent(
-            "star:owlcarousel",
-            ".default",
+            "bitrix:main.include",
+            "",
             array(
-                    "AUTO" => "false",
-                    "CONTROLS" => "true",
-                    "COUNT" => "14",
-                    "COUNT_SLIDES" => "3",
-                    "DATA_TYPE" => "IBLOCK",
-                    "FOLDER" => "/upload/",
-                    "IBLOCK_ID" => "22",
-                    "IBLOCK_TYPE" => "slider",
-                    "IMAGE" => "PREVIEW",
-                    "JQUERY" => "N",
-                    "LINK" => "N",
-                    "LOOP" => "true",
-                    "MARGIN" => "20",
-                    "NEW_WINDOW" => "N",
-                    "PAGER" => "true",
-                    "PROPERTY_CODE" => "",
-                    "SORT_BY1" => "SORT",
-                    "SORT_ORDER1" => "DESC",
-                    "COMPONENT_TEMPLATE" => ".default"
+                    "AREA_FILE_SHOW" => "file",
+                    "PATH" => SITE_DIR . "include/mainSlider.php"
             ),
             false
     ); ?>
-
 <?php endif; ?>
-<?php // форма обратной связи?>
-<div id="feedback">
-    <? $APPLICATION->IncludeComponent("interlabs:feedbackform", ".popup1", array(
-            "AGREE_PROCESSING" => "N",
-            "AJAX_MODE" => "Y",
-            "AJAX_OPTION_ADDITIONAL" => "",
-            "AJAX_OPTION_HISTORY" => "N",
-            "AJAX_OPTION_JUMP" => "N",
-            "AJAX_OPTION_STYLE" => "Y",
-            "EMAIL_FROM" => "sale@sokolru.ru",
-            "EMAIL_TO" => "cavjob@yandex.ru",
-            "EVENT_TYPE" => "INTERLABS_FEEDBACK",
-            "FIELD_CHECK" => array(
-                    0 => "NAME",
-                    1 => "PHONE",
-                    2 => "EMAIL",
-                    3 => "",
-            ),
-            "FORM_ID" => "i_1",
-            "IBLOCK_FIELDS_USE" => array(
-                    0 => "NAME",
-                    1 => "PHONE",
-                    2 => "EMAIL",
-                    3 => "MESSAGE",
-            ),
-            "IBLOCK_FIELD_EMAIL" => "EMAIL",
-            "IBLOCK_FIELD_PHONE" => "PHONE",
-            "IBLOCK_ID" => "19",
-            "IBLOCK_TYPE" => "sporina_forms",
-            "MAX_FILE_COUNT" => "10",
-            "MAX_FILE_SIZE" => "5",
-            "MESSAGE_ID" => "137",
-            "SUBJECT" => "Напишите нам",
-            "USE_CAPTCHA" => "N",
-            "COMPONENT_TEMPLATE" => ".popup1"
-    ),
-            false,
-            array(
-                    "ACTIVE_COMPONENT" => "N"
-            )
-    ); ?>
 
-</div>
 <footer class="bx-footer">
-
-
     <div class="bx-footer-section py-5">
         <div class="container">
             <div class="row">

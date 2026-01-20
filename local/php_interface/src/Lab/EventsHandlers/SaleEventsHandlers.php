@@ -77,20 +77,20 @@ class SaleEventsHandlers
 
         if ($diffRes != 1) {
             global $APPLICATION;
-            $APPLICATION->ThrowException('Не можете заказать на эту сумму, Уменьшите количество товаров в блоке выше со списком товаров .  Стоимость заказа - '. $orderPrice . ' руб. , у Вас в наличие - ' . $column33Value . ' баллов');
+            $APPLICATION->ThrowException('Не можете заказать на эту сумму, Уменьшите количество товаров в блоке выше со списком товаров .  Стоимость заказа - '. $orderPrice . ' руб. , у Вас в наличии - ' . $column33Value . ' баллов');
             return false;
         }
 
-        $log = date('Y-m-d H:i:s') . ' OnAfterIBlockElementUpdateHandler ' . print_r($arFields, true);
-        file_put_contents(__DIR__ . '/log.txt', $log . PHP_EOL, FILE_APPEND);
+        /*$log = date('Y-m-d H:i:s') . ' OnAfterIBlockElementUpdateHandler ' . print_r($arFields, true);
+        file_put_contents(__DIR__ . '/log.txt', $log . PHP_EOL, FILE_APPEND);*/
 
     }
 
     public static function onStatusChange(Bitrix\Main\Event $event)
     {
-        $log = date('Y-m-d H:i:s') . ' onStatusChange' . print_r($event, true);
+        /*$log = date('Y-m-d H:i:s') . ' onStatusChange' . print_r($event, true);
         file_put_contents(__DIR__ . '/log.txt', $log . PHP_EOL, FILE_APPEND);
-        Bitrix\Main\Diag\Debug::dumpToFile($log, '$event onStatusChange' . date('d-m-Y; H:i:s'));
+        Bitrix\Main\Diag\Debug::dumpToFile($log, '$event onStatusChange' . date('d-m-Y; H:i:s'));*/
 
     }
 

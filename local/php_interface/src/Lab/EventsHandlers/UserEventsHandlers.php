@@ -22,12 +22,13 @@ class UserEventsHandlers
         // $codeUserGroup = UsersHelpers::getUsersGroupCodeByGropeID($arFields['ID']);
         $gropeId = UsersHelpers::getUsersGroupIdByCode($gropeCode);
 
-        if (in_array($gropeId, \CUser::GetUserGroup($userId))) {
+
+        if (in_array($gropeId, $arFields['GROUP_ID'])) {
             $userName = $arFields["LAST_NAME"] . ' ' . $arFields["NAME"];
             $res = IblockHelpers::addElsToIblock('sotrudniki', $userId, $userName, $arFields["EMAIL"], 'ano', 's2');
-            $log = date('Y-m-d H:i:s') . ' OnAfterUserAddHandler ' . print_r($arFields, true);
+           /* $log = date('Y-m-d H:i:s') . ' OnAfterUserAddHandler ' . print_r($arFields, true);
             file_put_contents(__DIR__ . '/log.txt', $log . PHP_EOL, FILE_APPEND);
-            \Bitrix\Main\Diag\Debug::dumpToFile($res, 'OnAfterUserAddHandler' . date('d-m-Y; H:i:s'));
+            \Bitrix\Main\Diag\Debug::dumpToFile($log , 'OnAfterUserAddHandler' . date('d-m-Y; H:i:s'));*/
         };
     }
 
@@ -48,9 +49,9 @@ class UserEventsHandlers
             $PRODUCT_ID = $userIblockId;
             $res = $el->Update($PRODUCT_ID, $arLoadProductArray);
         }
-        $log = date('Y-m-d H:i:s') . ' onAfterUserUpdateHandler ' . print_r($arFields, true);
+       /* $log = date('Y-m-d H:i:s') . ' onAfterUserUpdateHandler ' . print_r($arFields, true);
         file_put_contents(__DIR__ . '/log.txt', $log . PHP_EOL, FILE_APPEND);
-        \Bitrix\Main\Diag\Debug::dumpToFile($log, 'onAfterUserUpdateHandler' . date('d-m-Y; H:i:s'));
+        \Bitrix\Main\Diag\Debug::dumpToFile($log, 'onAfterUserUpdateHandler' . date('d-m-Y; H:i:s'));*/
     }
 
 

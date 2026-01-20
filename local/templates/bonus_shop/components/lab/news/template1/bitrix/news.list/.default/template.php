@@ -19,7 +19,7 @@ $arPtoperties = $arResult["PROPERTIES"];
 <? endif; ?>
 
 <table class="bonus iksweb">
-    <thead class="stiky">
+    <thead class="stiky1">
     <tr>
         <?php global $USER;
         if ($USER->IsAdmin()) {?>

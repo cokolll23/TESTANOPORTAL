@@ -1,6 +1,4 @@
 <?php
-define("BX_FILE_PERMISSIONS", 0644);
-define("BX_DIR_PERMISSIONS", 0755);
 AddEventHandler("main", 'OnPageStart', 'setApplication');
 function setApplication()
 {
@@ -13,6 +11,7 @@ if (file_exists(__DIR__ . '/src/autoloader.php')) {
 if (file_exists(__DIR__ . '/includes/pretty-print/pretty_print.php')) {
     require_once __DIR__ . '/includes/pretty-print/pretty_print.php';
 }
+
 
 use Lab\EventsHandlers\IblockEventsHandlers as EH;
 use Lab\Helpers\IblockHelpers as IH;
@@ -127,12 +126,11 @@ function OnSaleOrderSavedHandler(\Bitrix\Main\Event $event)
             )
         );
 
-        $log = date('Y-m-d H:i:s') . ' onStatusChange' . print_r($propsNotZero, true);
+        /*$log = date('Y-m-d H:i:s') . ' onStatusChange' . print_r($propsNotZero, true);
         file_put_contents(__DIR__ . '/log.txt', $log . PHP_EOL, FILE_APPEND);
-        Bitrix\Main\Diag\Debug::dumpToFile($log, '$event onStatusChange' . date('d-m-Y; H:i:s'));
+        Bitrix\Main\Diag\Debug::dumpToFile($log, '$event onStatusChange' . date('d-m-Y; H:i:s'));*/
     }
 }
-
 ;
 
 // todo действия при регистрации и удалении пользователя если пользователь из группы K-Team: Сотрудники [12 EMPLOYEES_s1]
@@ -147,14 +145,33 @@ $eventManager->addEventHandler('sale', 'OnSaleStatusOrderChange', 'statusChange'
 function statusChange(\Bitrix\Main\Event $event)
 {
     $order = $event->getParameter("ENTITY");
-    // если статус заказа вотменен
+    // если статус заказа отменен
     if (in_array($order->getField('STATUS_ID'), array('D'))) {
 
         $ORDER = \Bitrix\Sale\Order::load($order->getId());
 
-        if (!$ORDER) {
-            return;
-        }
+        CModule::IncludeModule('sale');
+        CModule::IncludeModule('catalog');
+
+       /* $res = \CSaleBasket::GetList(array(), array("ORDER_ID" => $ORDER)); // ID заказа
+        $json_product = array();
+        while ($arItem = $res->Fetch()) {
+            $json_product[] = array(
+                'name' => $arItem['NAME'],
+                'id' => $arItem['PRODUCT_ID'],
+                'price' => $arItem['PRICE'],
+                'quantity' => $arItem['QUANTITY']
+            );
+        }*/
+        /*foreach ($json as $item) {
+            $basketQuantity = $item['quantity'];
+            $quantityNow = \CCatalogProduct::GetByID($item['id'])['QUANTITY'];
+            $ar_res[] = \CCatalogProduct::GetByID($item['id']);
+            $quantityNew = $quantityNow + $basketQuantity;
+            $arFields = array('QUANTITY' => $quantityNew);// зарезервированное количество
+            \CCatalogProduct::Update($item['id'], $arFields);
+        }*/
+
 
         // Получаем коллекцию свойств заказа
         $propertyCollection = $ORDER->getPropertyCollection();
@@ -168,7 +185,7 @@ function statusChange(\Bitrix\Main\Event $event)
 
         $customerProperties['EMAIL'] = $emailProperty->getValue();
         $customerProperties['PRICE'] = $orderPrice;
-
+        $productsData = [];
 
         $iblockId = IH::getIblockIdByCode('sotrudniki');
         $propertyId = IH::getPropertyIdByCode('sotrudniki', 'COLUMN33');
@@ -208,14 +225,13 @@ function statusChange(\Bitrix\Main\Event $event)
         );
 
 
-        /*$log = date('Y-m-d H:i:s') . ' onStatusChange' . print_r($arPrices, true);
-        file_put_contents(__DIR__ . '/log.txt', $log . PHP_EOL, FILE_APPEND);
-        Bitrix\Main\Diag\Debug::dumpToFile($log, '$event onStatusChange' . date('d-m-Y; H:i:s'));*/
+        $log = date('Y-m-d H:i:s') . ' onStatusChange' . print_r($ORDER, true);
+        file_put_contents(__DIR__ . '/log.txt', $ORDER . PHP_EOL, FILE_APPEND);
+        Bitrix\Main\Diag\Debug::dumpToFile($ORDER, '$event onStatusChange' . date('d-m-Y; H:i:s'));
 
     }
-
-
 }
+
 
 // todo регистрация пользователя не из АНО после добавления в иб ТАБЛИЦА БОНУСОВ в группу Все покупатели [ 24 CRM_SHOP_BUYER]
 // todo удаление пользователя не из АНО после добавления в иб ТАБЛИЦА БОНУСОВ в группу Все покупатели [ 24 CRM_SHOP_BUYER]
@@ -232,9 +248,9 @@ function onAfterIBlockElementAddHandler1(&$arFields)
 
     if ($IBLOCK_CODE === 'interlabs.feedbackform') {
 
-        $log = date('Y-m-d H:i:s') . ' interlabs.feedbackform ' . print_r($arFields, true);
+       /* $log = date('Y-m-d H:i:s') . ' interlabs.feedbackform ' . print_r($arFields, true);
         file_put_contents(__DIR__ . '/log.txt', $log . PHP_EOL, FILE_APPEND);
-        Bitrix\Main\Diag\Debug::dumpToFile($log, 'interlabs.feedbackform' . date('d-m-Y; H:i:s'));
+        Bitrix\Main\Diag\Debug::dumpToFile($log, 'interlabs.feedbackform' . date('d-m-Y; H:i:s'));*/
 
         $adminEmail = 'cavjob@ya.ru';
         $iblockName = CIBlock::GetByID($IBLOCK_ID)->Fetch()['NAME'];
@@ -264,7 +280,7 @@ function onAfterIBlockElementAddHandler1(&$arFields)
         $message = "Это тестовое письмо, отправленное с помощью функции mail() в PHP."; // Тело письма
         $headers = "From: sender@example.com\r\n"; // Заголовки
 
-        mail($to, "Загаловок", "Текст письма \n 1-ая строчка \n 2-ая строчка \n 3-ая строчка");
+
 
 
         CEvent::SendImmediate(
@@ -286,7 +302,7 @@ function
 onAfterIBlockElementDeleteHandler(&$arFields)
 {
 
-    $log = date('Y-m-d H:i:s') . ' onAfterIBlockElementDeleteHandler ' . print_r($arFields, true);
+    /*$log = date('Y-m-d H:i:s') . ' onAfterIBlockElementDeleteHandler ' . print_r($arFields, true);
     file_put_contents(__DIR__ . '/log.txt', $log . PHP_EOL, FILE_APPEND);
-    Bitrix\Main\Diag\Debug::dumpToFile($log, 'onAfterIBlockElementDeleteHandler' . date('d-m-Y; H:i:s'));
+    Bitrix\Main\Diag\Debug::dumpToFile($log, 'onAfterIBlockElementDeleteHandler' . date('d-m-Y; H:i:s'));*/
 }

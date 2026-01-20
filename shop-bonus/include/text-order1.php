@@ -1,6 +1,6 @@
 
 <div style="padding-top:40px " class="l-order  container flex">
-    <div class="l-order_row row">
+    <div class="l-order_row  row">
 
 
         <div class="l-order_row-cell flex col-md-4 col-sm-12">
@@ -20,7 +20,8 @@
         </div>
 
     </div>
-    <div class="l-order_row row">
+
+    <div class="l-order_row l-order_row-bottom row">
 
 
         <div class="l-order_row-cell flex col-md-4 col-sm-12">
@@ -39,3 +40,36 @@
     </div>
 
 </div>
+<style>
+    .button-link {
+        display: inline-block;
+        padding: 20px 55px;
+        background-color: #e30613;
+        color: white;
+        text-decoration: none;
+        border-radius: 30px;
+
+        font-size: 16px;
+    }
+
+    .button-link:hover {
+        background-color: #f23843;
+        color: white;
+        text-decoration: none;
+    }
+    .button-link:focus {
+        color: white;
+        text-decoration: none;
+    }
+</style>
+<br>
+<br>
+<br>
+<div class="flex" style="justify-content: center;">
+    <a href="https://disk.yandex.ru/d/EzOAujB8eLesOA" class="button-link">Подробнее</a>
+</div>
+<br>
+<br>
+<br><br>
+<br>
+<br>

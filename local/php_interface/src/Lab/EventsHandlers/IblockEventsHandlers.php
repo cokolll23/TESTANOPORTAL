@@ -75,9 +75,9 @@ class IblockEventsHandlers
             //$interlabsSignscoresPropsList = IblockHelpers::getPropsListIblock('interlabs.signscores');
 
 
-            $log = date('Y-m-d H:i:s') . ' interlabs.feedbackform ' . print_r($arFields, true);
+           /* $log = date('Y-m-d H:i:s') . ' interlabs.feedbackform ' . print_r($arFields, true);
             file_put_contents(__DIR__ . '/log.txt', $log . PHP_EOL, FILE_APPEND);
-            \Bitrix\Main\Diag\Debug::dumpToFile($log, 'interlabs.feedbackform' . date('d-m-Y; H:i:s'));
+            \Bitrix\Main\Diag\Debug::dumpToFile($log, 'interlabs.feedbackform' . date('d-m-Y; H:i:s'));*/
 
         }
 

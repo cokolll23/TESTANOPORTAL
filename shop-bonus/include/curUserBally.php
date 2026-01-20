@@ -30,9 +30,11 @@ if ($ar['PROPERTY_COLUMN33_VALUE'] != '') {
         </div>
     <? endif; ?>
     <div class="col-12">
-        <? if ($ar['ID'] != '' && $USER->IsAuthorized()) { ?> <a
-                href="<?= SITE_DIR ?>detal/?ELEMENT_ID=<?= $ar['ID']; ?>
-		 ">Перейти на детальный просмотр баллов</a>
+        <? if ($ar['ID'] != '' && $USER->IsAuthorized()) { ?>
+            <a
+                href="<?= SITE_DIR ?>detal/?ELEMENT_ID=<?= $ar['ID']; ?>">
+            Перейти на детальный просмотр баллов
+        </a>
         <?php } ?>
     </div>
     <div class="col-12">
@@ -54,7 +56,7 @@ if ($ar['PROPERTY_COLUMN33_VALUE'] != '') {
                         "IBLOCK_FIELDS_USE" => array("NAME", "PHONE", "EMAIL", "MESSAGE"),
                         "IBLOCK_FIELD_EMAIL" => "EMAIL",
                         "IBLOCK_FIELD_PHONE" => "PHONE",
-                        "IBLOCK_ID" => "23",
+                        "IBLOCK_ID" => "46",
                         "IBLOCK_TYPE" => "feedbackmsgs",
                         "MAX_FILE_COUNT" => "10",
                         "MAX_FILE_SIZE" => "5",
@@ -80,7 +82,7 @@ if ($ar['PROPERTY_COLUMN33_VALUE'] != '') {
                         "IBLOCK_FIELDS_USE" => array("PHONE", "EMAIL", "EVENT_CODE", "EVENT_NAME", "SCORES_QTT", "NAME"),
                         "IBLOCK_FIELD_EMAIL" => "EMAIL",
                         "IBLOCK_FIELD_PHONE" => "PHONE",
-                        "IBLOCK_ID" => "24",
+                        "IBLOCK_ID" => "47",
                         "IBLOCK_TYPE" => "feedbackmsgs",
                         "MAX_FILE_COUNT" => "10",
                         "MAX_FILE_SIZE" => "5",

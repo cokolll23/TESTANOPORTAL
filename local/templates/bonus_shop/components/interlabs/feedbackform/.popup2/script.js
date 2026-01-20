@@ -19,7 +19,7 @@ $(document).ready(function () {
         e.preventDefault();
         //alert(' ok');
         $.ajax({
-            url: 'ajaxLoadEvents.php', // Путь к обработчику
+            url: '/shop-bonus/ajaxLoadEvents.php', // Путь к обработчику
             dataType: 'json',
             method: 'POST',
             data: {

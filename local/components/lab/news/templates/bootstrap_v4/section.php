@@ -36,7 +36,7 @@ $this->setFrameMode(true);
 <?if($arParams["USE_FILTER"]=="Y"):?>
 <?$APPLICATION->IncludeComponent(
 	"bitrix:catalog.filter",
-	"bootstrap_5",
+	"bootstrap_v4",
 	Array(
 		"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
 		"IBLOCK_ID" => $arParams["IBLOCK_ID"],
@@ -56,7 +56,7 @@ $this->setFrameMode(true);
 
 <?$APPLICATION->IncludeComponent(
 	"bitrix:news.list",
-	"bootstrap_5",
+	"bootstrap_v4",
 	Array(
 		"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
 		"IBLOCK_ID" => $arParams["IBLOCK_ID"],

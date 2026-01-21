@@ -122,7 +122,7 @@ CUtil::InitJSCore(['fx', 'ui.fonts.opensans']);
 				<div>
 					<?$APPLICATION->IncludeComponent(
 						"bitrix:iblock.vote",
-						"bootstrap_5",
+						"bootstrap_v4",
 						Array(
 							"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
 							"IBLOCK_ID" => $arParams["IBLOCK_ID"],

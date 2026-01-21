@@ -47,7 +47,7 @@ endif;
 if($arParams["USE_FILTER"]=="Y"):
 $APPLICATION->IncludeComponent(
 	"bitrix:catalog.filter",
-	"bootstrap_5",
+	"bootstrap_v4",
 	[
 		"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
 		"IBLOCK_ID" => $arParams["IBLOCK_ID"],
@@ -67,7 +67,7 @@ endif;
 
 $APPLICATION->IncludeComponent(
 	"bitrix:news.list",
-	"bootstrap_5",
+	"bootstrap_v4",
 	[
 		"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
 		"IBLOCK_ID" => $arParams["IBLOCK_ID"],

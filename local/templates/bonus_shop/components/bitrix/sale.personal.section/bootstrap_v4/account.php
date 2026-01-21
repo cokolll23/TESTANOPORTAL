@@ -39,7 +39,7 @@ if ($arParams['SHOW_ACCOUNT_COMPONENT'] !== 'N')
 {
 	$APPLICATION->IncludeComponent(
 		"bitrix:sale.personal.account",
-		"bootstrap_5",
+		"bootstrap_v4",
 		[
 			"SET_TITLE" => "N",
 			"AUTH_FORM_IN_TEMPLATE" => 'Y',
@@ -61,9 +61,9 @@ if ($arParams['SHOW_ACCOUNT_PAY_COMPONENT'] !== 'N' && $USER->IsAuthorized())
 			<?
 				$APPLICATION->IncludeComponent(
 					"bitrix:sale.account.pay",
-					"bootstrap_5",
+					"bootstrap_v4",
 					Array(
-						"COMPONENT_TEMPLATE" => "bootstrap_5",
+						"COMPONENT_TEMPLATE" => "bootstrap_v4",
 						"REFRESHED_COMPONENT_MODE" => "Y",
 						"ELIMINATED_PAY_SYSTEMS" => $arParams['ACCOUNT_PAYMENT_ELIMINATED_PAY_SYSTEMS'],
 						"PATH_TO_BASKET" => $arParams['PATH_TO_BASKET'],

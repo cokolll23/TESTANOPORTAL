@@ -26,7 +26,7 @@ $APPLICATION->AddChainItem(Loc::getMessage("SPS_CHAIN_ORDERS"), $arResult['PATH_
 $APPLICATION->AddChainItem(Loc::getMessage("SPS_CHAIN_ORDER_DETAIL", array("#ID#" => $arResult["VARIABLES"]["ID"])));
 $APPLICATION->IncludeComponent(
 	"bitrix:sale.personal.order.cancel",
-	"bootstrap_5",
+	"bootstrap_v4",
 	array(
 		"PATH_TO_LIST" => $arResult["PATH_TO_ORDERS"],
 		"PATH_TO_DETAIL" => $arResult["PATH_TO_ORDER_DETAIL"],

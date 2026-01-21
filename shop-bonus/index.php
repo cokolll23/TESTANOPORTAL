@@ -24,7 +24,7 @@ $APPLICATION->SetTitle("Интернет-магазин \"Бонусы\"");
 		"CACHE_TIME" => "36000000",
 		"CACHE_TYPE" => "A",
 		"COMPATIBLE_MODE" => "N",
-		"COMPONENT_TEMPLATE" => "bootstrap_5",
+		"COMPONENT_TEMPLATE" => "bootstrap_v4",
 		"CONVERT_CURRENCY" => "N",
 		"CUSTOM_FILTER" => "{\"CLASS_ID\":\"CondGroup\",\"DATA\":{\"All\":\"AND\",\"True\":\"True\"},\"CHILDREN\":[]}",
 		"DETAIL_URL" => "",

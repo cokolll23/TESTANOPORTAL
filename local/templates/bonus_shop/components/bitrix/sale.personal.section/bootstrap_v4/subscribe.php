@@ -21,7 +21,7 @@ if ($arParams["MAIN_CHAIN_NAME"] <> '')
 $APPLICATION->AddChainItem(Loc::getMessage("SPS_CHAIN_SUBSCRIBE_NEW"));
 $APPLICATION->IncludeComponent(
 	'bitrix:catalog.product.subscribe.list',
-	"bootstrap_5",
+	"bootstrap_v4",
 	array(
 		'SET_TITLE' => $arParams['SET_TITLE'],
 		'DETAIL_URL' => $arParams['SUBSCRIBE_DETAIL_URL']

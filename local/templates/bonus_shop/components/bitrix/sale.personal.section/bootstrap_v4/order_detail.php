@@ -46,7 +46,6 @@ foreach($arParams as $key => $val)
 	if(mb_strpos($key, "PROP_") !== false)
 		$arDetParams[$key] = $val;
 }
-
 $APPLICATION->IncludeComponent(
 	"bitrix:sale.personal.order.detail",
 	"bootstrap_v4",

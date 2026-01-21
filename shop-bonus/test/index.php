@@ -6,6 +6,6 @@ $APPLICATION->SetTitle("testaaa");
 use Lab\Helpers\SaleHelpers as SaleHelper;
 
 $arQtty=SaleHelper::getCurrentUserRealQuantityBasketProduct();
-pretty_print($arQtty);
+//pretty_print($arQtty);
 ?>
 <?php require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>

@@ -18,7 +18,7 @@ use Bitrix\Catalog\ProductTable;
 $this->setFrameMode(true);
 $templateLibrary = array('popup', 'fx', 'ui.fonts.opensans');
 $currencyList = '';
-pretty_print($arResult);
+//pretty_print($arResult);
 if (!empty($arResult['CURRENCIES']))
 {
 	$templateLibrary[] = 'currency';

@@ -79,7 +79,8 @@ $compositeStub = (isset($arResult['COMPOSITE_STUB']) && $arResult['COMPOSITE_STU
 			{
 				echo $arResult['BASKET_COUNT_DESCRIPTION'];
                 echo '<br>';
-                echo 'Товаров всего в корзине : '.$arResult['TOTAL_QUANTITY'] . ' шт.';
+                echo 'Товаров всего в корзине : '.$arResult['TOTAL_QUANTITY'];
+               // echo '<br>';
 
 				if ($arParams['SHOW_TOTAL_PRICE'] == 'Y')
 				{

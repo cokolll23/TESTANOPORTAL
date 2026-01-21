@@ -5,8 +5,12 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 }
 use Lab\Helpers\SaleHelpers as SaleHelpers;
 $arResQntt= SaleHelpers::getCurrentUserRealQuantityBasketProduct();
-
-$arResult['TOTAL_QUANTITY'] = $arResQntt['TOTAL_QUANTITY'];
+if ($arResQntt >=0){
+    $arResult['TOTAL_QUANTITY'] = $arResQntt['TOTAL_QUANTITY'].' шт.';
+}
+if ($arResQntt <=0){
+    $arResult['TOTAL_QUANTITY'] = '0 шт.';
+}
 
 
 

@@ -133,15 +133,18 @@ function OnSaleOrderSavedHandler(\Bitrix\Main\Event $event)
 }
 ;
 
+// todo  при Отмене заказа из личного кабинета покупателя изменяет статус на D
+$eventManager->addEventHandler("sale", "OnSaleOrderSaved", ['Lab\EventsHandlers\SaleEventsHandlers','OnSaleOrderSavedHandler1']);
+
 // todo действия при регистрации и удалении пользователя если пользователь из группы K-Team: Сотрудники [12 EMPLOYEES_s1]
 // todo если из АНО
 AddEventHandler("main", "OnAfterUserAdd", ['Lab\EventsHandlers\UserEventsHandlers', 'onAfterUserAddHandler']);
 AddEventHandler("main", "OnAfterUserUpdate", ['Lab\EventsHandlers\UserEventsHandlers', 'onAfterUserUpdateHandler']);
 //todo Отменяем создание заказа до его создания при цена заказа выше определенной цифры https://chat.deepseek.com/a/chat/s/6e829ee6-c90c-46b8-a2f5-dbab70924b95
 AddEventHandler("sale", "OnBeforeOrderAdd", ['Lab\EventsHandlers\SaleEventsHandlers', 'onBeforeOrderAdd']);
-//todo при изменении статуса на Выполнен id F  вычитает стоимость заказа из значения св-ва COLUMN33 данного покупателя вычисляем по E-mail
+//todo при изменении статуса на Выполнен id D вычитает стоимость заказа из значения св-ва COLUMN33 данного покупателя вычисляем по E-mail
 // в иб sotrudniki по символьному коду элемента
-$eventManager->addEventHandler('sale', 'OnSaleStatusOrderChange', 'statusChange');
+//$eventManager->addEventHandler('sale', 'OnSaleStatusOrderChange', 'statusChange');
 function statusChange(\Bitrix\Main\Event $event)
 {
     $order = $event->getParameter("ENTITY");

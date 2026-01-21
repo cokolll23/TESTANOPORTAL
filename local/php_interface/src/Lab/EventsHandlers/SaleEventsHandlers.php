@@ -94,7 +94,7 @@ class SaleEventsHandlers
 
     }
 
-    // todo  изменение статуса заказа на D Выполнен
+    // todo  при отмене заказа возврат покупателю баллов и товарам из заказа кол-ва
     public static function OnSaleOrderSavedHandler1(\Bitrix\Main\Event $event) {
         $order = $event->getParameter("ENTITY");
         if ($order->isCanceled() && $order->getField("STATUS_ID") != "D") {
@@ -168,6 +168,25 @@ class SaleEventsHandlers
                 }
             } else {
                 echo "Заказ не найден";
+            }
+// добавляем количество товара при отмене заказа
+            foreach ($basket as $basketItem) {
+                $productId = $basketItem->getProductId();
+                $quantity = $basketItem->getQuantity();
+                if (\Bitrix\Main\Loader::includeModule('catalog')) {
+                    // Получаем текущие остатки
+                    $productData = \CCatalogProduct::GetByID($productId);
+
+                    if ($productData) {
+                        $newQuantity = $productData['QUANTITY'] + $quantity;
+
+                        // Обновляем общее количество
+                        \CCatalogProduct::Update($productId, [
+                            'QUANTITY' => $newQuantity
+                        ]);
+                    }
+                }
+
             }
 
 

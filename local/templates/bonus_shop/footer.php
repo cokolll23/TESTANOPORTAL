@@ -28,6 +28,7 @@ if ($curPage == SITE_DIR . "index.php"): ?>
 
         </div>
     </a>
+
     <? $APPLICATION->IncludeComponent(
             "bitrix:main.include",
             "",
@@ -38,7 +39,18 @@ if ($curPage == SITE_DIR . "index.php"): ?>
             false
     ); ?>
 <?php endif; ?>
-
+<?php // форма обратной связи?>
+<div id="feedback" class="container">
+    <? $APPLICATION->IncludeComponent(
+            "bitrix:main.include",
+            "",
+            array(
+                    "AREA_FILE_SHOW" => "file",
+                    "PATH" => SITE_DIR . "include/curUserBallyBottom.php"
+            ),
+            false
+    ); ?>
+</div>
 <footer class="bx-footer">
     <div class="bx-footer-section py-5">
         <div class="container">

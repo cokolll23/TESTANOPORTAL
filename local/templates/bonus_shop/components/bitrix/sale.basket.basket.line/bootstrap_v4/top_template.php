@@ -87,7 +87,7 @@ $compositeStub = (isset($arResult['COMPOSITE_STUB']) && $arResult['COMPOSITE_STU
 
                 <? if ($arParams['SHOW_TOTAL_PRICE'] == 'Y') {
                     ?>
-                    <? if ($arParams['POSITION_FIXED'] == 'Y'): ?>class="d-none d-block-sm"<? endif; ?>
+
                     <span>
 						<?= GetMessage('TSB1_TOTAL_PRICE') ?> <strong><?= $arResult['TOTAL_PRICE'] ?></strong>
 					</span>

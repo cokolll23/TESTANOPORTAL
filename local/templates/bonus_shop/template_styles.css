@@ -834,8 +834,12 @@ a.see-balls_wrapp {
 
 }
 
-.bx-red .product-item-label-text span, .bx-red .product-item-label-ring {
+.bx-red .product-item-label-text span, .bx-red .product-item-label-ring , .interlab-form button{
     background-color: #e30613 !important;
+}
+.interlab-form button{
+    color: #F2F2F2;;
+    border: #e30613;
 }
 
 .owl-carousel .owl-item img {
@@ -845,6 +849,9 @@ a.see-balls_wrapp {
 
 .bx-aside-nav ul {
     display: flex;
+}
+.js-interlabs-feedbackform__dialog__send-button{
+    border-radius: 10px;
 }
 
 

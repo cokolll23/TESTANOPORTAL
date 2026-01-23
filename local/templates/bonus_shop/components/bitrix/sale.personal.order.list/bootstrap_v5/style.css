@@ -4,11 +4,14 @@
 }
 
 .sale-order-list-title-container {
-	border: 1px solid #c2f388;
-	background: rgba(194, 243, 136, .5);
+	border: 1px solid #E30613;
+    background-color: #E30613 !important;
 }
 
-.sale-order-list-title-container h3 { font-size: 16px; }
+.sale-order-list-title-container h3 {
+    font-size: 16px;
+    color: #fff;
+}
 
 .sale-order-list-accomplished-title {
 	margin-top: 10px;

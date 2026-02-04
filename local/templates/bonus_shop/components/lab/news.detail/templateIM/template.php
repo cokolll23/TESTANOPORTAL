@@ -11,7 +11,9 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
+
 //pretty_print($arResult);
+
 ?>
 <div class="news-detail">
     <? if ((!isset($arParams["DISPLAY_NAME"]) || $arParams["DISPLAY_NAME"] != "N") && $arResult["NAME"]): ?>
@@ -28,7 +30,7 @@ $this->setFrameMode(true);
             <?= $arProperty["DISPLAY_VALUE"]; ?>
                </span>
             </div>
-        <?else:?>
+        <? else: ?>
             <div class="item i-<?= $pid ?>">
            <span> <?= $arProperty["NAME"] ?>:&nbsp;
             <?= $arProperty["DISPLAY_VALUE"]; ?>
@@ -39,5 +41,14 @@ $this->setFrameMode(true);
         <br/>
     <?endforeach;
 
+
+    if (\Lab\Helpers\SaleHelpers::getCurrentUserPriceOrders() > 0) {
+        $ordersPrice = \Lab\Helpers\SaleHelpers::getCurrentUserPriceOrders();
+    } else {
+        $ordersPrice = 0;
+    }
     ?>
+
+    <b style="font-size: 19px">Израсходовано: <?= $ordersPrice; ?>
+        М-баллов.</b>
 </div>

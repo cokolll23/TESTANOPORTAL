@@ -853,6 +853,9 @@ a.see-balls_wrapp {
 .js-interlabs-feedbackform__dialog__send-button{
     border-radius: 10px;
 }
+.interlabs-feedbackform__container #MESSAGE{
+    height: 65px;
+}
 
 
 

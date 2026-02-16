@@ -6,6 +6,7 @@ use Bitrix\Sale;
 use Bitrix\Catalog;
 use Bitrix\Main\Diag\Debug;
 use Lab\Helpers\IblockHelpers as IH;
+use Lab\Helpers\RecalculateScores as RS;
 
 
 class SaleEventsHandlers
@@ -144,15 +145,15 @@ class SaleEventsHandlers
                 $COLUMN33_ValueNew = (int)$COLUMN33_Value + (int)$customerProperties['PRICE'];
 
                 $arPrices = [$COLUMN33_Value, $customerProperties['PRICE'], $COLUMN33_ValueNew];
-
+                RS::getTotalScores('sotrudniki', $customerProperties['EMAIL']);
                 // Устанавливаем значение свойства
-                \CIBlockElement::SetPropertyValuesEx(
+               /* \CIBlockElement::SetPropertyValuesEx(
                     $elementId,
                     $iblockId,
                     array(
                         "COLUMN33" => $COLUMN33_ValueNew
                     )
-                );
+                );*/
 
                 foreach ($basket as $i=> $basketItem) {
                     $productName = $basketItem->getField('NAME');

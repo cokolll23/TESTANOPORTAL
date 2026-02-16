@@ -22,6 +22,30 @@ class UsersHelpers
 
     }
 
+    /**
+     * Получаем ID юзера пользователя по его Email
+     */
+
+    public static function getUserIdIdByUserEmail($email)
+    {
+        $user = UserTable::getList([
+            'select' => ['ID'], // Выбираем только ID
+            'filter' => ['=EMAIL' => $email], // Фильтр по email
+            'limit' => 1 // На всякий случай ограничиваем одним результатом
+        ])->fetch();
+
+        if ($user) {
+            $userEmail = $user['ID'];
+            return $userEmail;
+        } else {
+            //echo "Пользователь с email " . $email . " не найден.";
+            global $APPLICATION;
+            $APPLICATION->ThrowException('Пользователь с email  ' . $email . ' не найден. ');
+            return false;
+        }
+
+    }
+
 
     /**
      * Получаем ID группы пользователей по ее символьный код группы

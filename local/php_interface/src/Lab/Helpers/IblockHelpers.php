@@ -252,4 +252,33 @@ class IblockHelpers
         )->GetNext();
         return $arElVal;
     }
+
+    /**
+     * получить значение  свойства по его Коду
+     */
+    public static function getPropertyValueByElementCode($elementCode,$propertyCode='COLUMN34' )
+    {
+        // $elementCode Email user
+
+        $res = \CIBlockElement::GetList(
+            [],
+            [
+                'CODE' => $elementCode,
+                'ACTIVE' => 'Y',
+            ],
+            false,
+            false,
+            [
+                'ID',
+                'NAME',
+                'PROPERTY_' . $propertyCode,
+            ]
+        );
+
+        if ($arElement = $res->Fetch()) {
+            $PropertyValue = $arElement['PROPERTY_' . $propertyCode . '_VALUE'];
+
+        }
+        return $PropertyValue;
+    }
 }
